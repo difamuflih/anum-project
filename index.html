@@ -10,10 +10,11 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <!-- awal navbar  -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary shadow">
       <div class="container d-flex justify-content-around">
         <a class="navbar-brand" href="#">CalcUS</a>
         <button
@@ -71,18 +72,16 @@
       <div class="container mt-5 w-50">
         <div class="header-home text-center">
           <h1>Perhitungan Pinjaman</h1>
-          <h5>
+          <p>
             Kalkulator pinjaman membantu Anda untuk menghitung biaya pinjaman
             dan besar cicilan. Kalkulator pinjaman juga membantu dalam
             membandingkan suku bunga pinjaman.
-          </h5>
+          </p>
         </div>
         <div class="mt-5">
           <form action="">
             <div class="mb-3">
-              <label for="formGroupExampleInput" class="form-label"
-                >Pinjaman Awal</label
-              >
+              <label for="pinjamanAwal" class="form-label">Pinjaman Awal</label>
               <div class="input-group mb-3">
                 <span class="input-group-text">Rp.</span>
                 <input
@@ -95,9 +94,7 @@
               </div>
             </div>
             <div class="mb-3">
-              <label for="formGroupExampleInput2" class="form-label"
-                >Suku Bunga</label
-              >
+              <label for="sukuBunga" class="form-label">Suku Bunga</label>
               <div class="input-group mb-3">
                 <input
                   id="sukuBunga"
@@ -111,7 +108,7 @@
               </div>
             </div>
             <div class="mb-3">
-              <label for="formGroupExampleInput2" class="form-label"
+              <label for="jumlahCicilan" class="form-label"
                 >Jumlah cicilan</label
               >
               <div class="input-group mb-3">
