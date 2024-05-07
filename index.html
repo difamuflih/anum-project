@@ -14,7 +14,10 @@
   </head>
   <body>
     <!-- awal navbar  -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary shadow">
+    <nav
+      class="navbar navbar-expand-md bg-dark bg-body-tertiary shadow"
+      data-bs-theme="dark"
+    >
       <div class="container d-flex justify-content-around">
         <a class="navbar-brand" href="#">CalcUS</a>
         <button
@@ -51,17 +54,7 @@
               </ul>
             </li>
           </ul>
-          <form class="d-flex" role="search">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button class="btn btn-outline-success" type="submit">
-              Search
-            </button>
-          </form>
+          <span class="navbar-text"> ANUM-E4</span>
         </div>
       </div>
     </nav>
@@ -69,7 +62,7 @@
 
     <!-- awal home  -->
     <section id="home">
-      <div class="container pt-5 w-50 pb-5">
+      <div class="container pt-5 pb-5">
         <div class="header-home text-center">
           <h1>Perhitungan Pinjaman</h1>
           <p>
@@ -89,6 +82,7 @@
                   type="number"
                   class="form-control"
                   aria-label="Amount (to the nearest dollar)"
+                  placeholder="masukkan pinjaman awal"
                 />
                 <span class="input-group-text">.00</span>
               </div>
@@ -100,7 +94,7 @@
                   id="sukuBunga"
                   type="number"
                   class="form-control"
-                  placeholder="suku bunga"
+                  placeholder="masukkan suku bunga"
                   aria-label="suku bunga"
                   aria-describedby="basic-addon2"
                 />
@@ -109,7 +103,7 @@
             </div>
             <div class="mb-3">
               <label for="jumlahCicilan" class="form-label"
-                >Jumlah cicilan</label
+                >Jumlah Cicilan</label
               >
               <div class="input-group mb-3">
                 <input
@@ -117,6 +111,7 @@
                   type="number"
                   class="form-control"
                   aria-label="Text input with dropdown button"
+                  placeholder="masukkan jumlah cicilan"
                 />
                 <label for="">
                   <select class="form-select" id="inputGroupSelect">
@@ -125,6 +120,9 @@
                   </select>
                 </label>
               </div>
+            </div>
+            <div class="d-grid col-3 mx-auto mt-4">
+              <button class="btn btn-dark" type="button">Hitung</button>
             </div>
           </form>
         </div>
