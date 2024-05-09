@@ -7,6 +7,10 @@ function hitung() {
   //   hitung nilai xn
   const xn = pinjaman / cicilan + pinjaman / (bunga * cicilan);
 
+  //   hitung anuitas???????????????????????
+  const anuitas = (pinjaman * bunga) / (1 - (1 + bunga) ** -cicilan);
+  document.getElementById("hasilCicilan").innerText = anuitas.toFixed(3);
+
   //   tampilkan nilai xn
   document.getElementById("hasilCicilan").innerText = xn.toFixed(3);
 
