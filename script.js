@@ -20,10 +20,11 @@ function hitung() {
   document.getElementById("hasilAksen").innerText = faksen.toFixed(2);
 
   // Hitung cicilan awal menggunakan rumus n
-  console.log(`Cicilan awal menggunakan rumus anuitas: ${n.toFixed(2)}`);
+  document.getElementById(
+    "hasilDesk"
+  ).innerText = `Cicilan awal menggunakan rumus anuitas: ${n.toFixed(2)}`;
 
   // Hitung nilai awal n
-  let nx = n - target; // Nilai awal n
   let iterasi = 0;
 
   // Iterasi menggunakan metode Newton-Raphson
@@ -31,27 +32,23 @@ function hitung() {
     iterasi++;
 
     // Hitung nilai turunan fungsi
-    const turunan = faksen;
 
     // Penanganan kasus di mana turunan fungsi adalah nol
-    if (turunan === 0) {
+    if (faksen === 0) {
       document.getElementById("hasilAsli").innerText =
         "Turunan fungsi adalah nol. Iterasi dihentikan.";
       return [null, null];
     }
-
-    // Hitung nilai x(n)
-    const xn = n - target;
 
     // Tampilkan nilai n, x(n), dan f'(n) pada setiap iterasi
     document.getElementById(
       "hasilAsli"
     ).innerText = `Iterasi ${iterasi}: n = ${n.toFixed(2)}, x(n) = ${xn.toFixed(
       2
-    )}, f'(n) = ${turunan.toFixed(2)}`;
+    )}, f'(n) = ${faksen.toFixed(2)}`;
 
     // Hitung nilai iterasi baru
-    const nilai_baru = n - xn / turunan;
+    const nilai_baru = n - xn / faksen;
 
     // Menghentikan iterasi jika toleransi tercapai atau mencapai batas iterasi maksimum
     if (Math.abs(nilai_baru - n) < toleransi || iterasi >= maks_iter) {
