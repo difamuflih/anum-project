@@ -26,7 +26,7 @@ function calculateAnnuity() {
   var labels = [];
   var data = [];
 
-  for (var month = 1; month <= 20; month++) {
+  for (var month = 1; month <= 200; month++) {
     monthlyPayment = monthlyPayment - target / faksen;
     remainingBalance = monthlyPayment - target;
 
