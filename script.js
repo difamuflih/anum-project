@@ -1,62 +1,80 @@
-function hitung() {
-  const pinjaman = parseFloat(document.getElementById("pinjamanAwal").value);
-  const sukuBunga = parseFloat(document.getElementById("sukuBunga").value);
-  const bunga = sukuBunga / 100;
-  const target = parseFloat(document.getElementById("target").value);
-  const cicilan = parseFloat(document.getElementById("jumlahCicilan").value);
+function calculateAnnuity() {
+  var pinjamanAwal = parseFloat(document.getElementById("pinjamanAwal").value);
+  var sukuBunga = parseFloat(document.getElementById("sukuBunga").value) / 100;
+  var target = parseInt(document.getElementById("target").value);
+  var jumlahCicilan = parseInt(document.getElementById("jumlahCicilan").value);
+  var monthlyInterestRate = sukuBunga / 12;
+  var totalPayments = jumlahCicilan * 12;
 
-  //   hitung n
-  const n = (pinjaman * bunga) / 1 - (1 + bunga) ** -cicilan;
-  document.getElementById("hasilCicilan").innerText = n.toFixed(2);
+  var monthlyPayment =
+    (pinjamanAwal * sukuBunga) / 1 - (1 + sukuBunga) ** -jumlahCicilan;
 
-  // hitung xn
-  const xn = n - target;
-  document.getElementById("hasilIterasi").innerText = xn.toFixed(2);
+  console.log(monthlyPayment);
 
-  // hitung faksen
-  const faksen =
-    (pinjaman * bunga * (1 + bunga) ** -cicilan) /
-    (1 - (1 + bunga) ** -cicilan) ** 2;
-  document.getElementById("hasilAksen").innerText = faksen.toFixed(2);
+  var tableBody = document.getElementById("tableBody");
+  tableBody.innerHTML = "";
 
-  // Hitung cicilan awal menggunakan rumus n
-  document.getElementById(
-    "hasilDesk"
-  ).innerText = `Cicilan awal menggunakan rumus anuitas: ${n.toFixed(2)}`;
+  var remainingBalance = monthlyPayment - target;
+  console.log(remainingBalance);
 
-  // Hitung nilai awal n
-  let iterasi = 0;
+  var faksen =
+    (pinjamanAwal * sukuBunga * (1 + sukuBunga) ** -jumlahCicilan) /
+    (1 - (1 + sukuBunga) ** -jumlahCicilan) ** 2;
 
-  // Iterasi menggunakan metode Newton-Raphson
-  while (true) {
-    iterasi++;
+  console.log(faksen);
 
-    // Hitung nilai turunan fungsi
+  var labels = [];
+  var data = [];
 
-    // Penanganan kasus di mana turunan fungsi adalah nol
-    if (faksen === 0) {
-      document.getElementById("hasilAsli").innerText =
-        "Turunan fungsi adalah nol. Iterasi dihentikan.";
-      return [null, null];
-    }
+  for (var month = 1; month <= 20; month++) {
+    monthlyPayment = monthlyPayment - target / faksen;
+    remainingBalance = monthlyPayment - target;
 
-    // Tampilkan nilai n, x(n), dan f'(n) pada setiap iterasi
-    document.getElementById(
-      "hasilAsli"
-    ).innerText = `Iterasi ${iterasi}: n = ${n.toFixed(2)}, x(n) = ${xn.toFixed(
-      2
-    )}, f'(n) = ${faksen.toFixed(2)}`;
+    var newRow = document.createElement("tr");
+    newRow.innerHTML =
+      "<td>" +
+      month +
+      "</td><td>" +
+      monthlyPayment.toFixed(2) +
+      "</td><td>" +
+      remainingBalance.toFixed(2) +
+      "</td><td>" +
+      faksen.toFixed(2) +
+      "</td>";
+    tableBody.appendChild(newRow);
 
-    // Hitung nilai iterasi baru
-    const nilai_baru = n - xn / faksen;
-
-    // Menghentikan iterasi jika toleransi tercapai atau mencapai batas iterasi maksimum
-    if (Math.abs(nilai_baru - n) < toleransi || iterasi >= maks_iter) {
+    if (monthlyPayment < 1) {
       break;
     }
-
-    n = nilai_baru;
+    labels.push(month);
+    data.push(remainingBalance.toFixed(2));
   }
 
-  return [n, iterasi];
+  var ctx = document.getElementById("annuityChart").getContext("2d");
+  var annuityChart = new Chart(ctx, {
+    type: "line",
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          label: "Sisa Pinjaman",
+          data: data,
+          backgroundColor: "rgba(54, 162, 235, 0.2)",
+          borderColor: "rgba(54, 162, 235, 1)",
+          borderWidth: 1,
+        },
+      ],
+    },
+    options: {
+      scales: {
+        yAxes: [
+          {
+            ticks: {
+              beginAtZero: true,
+            },
+          },
+        ],
+      },
+    },
+  });
 }

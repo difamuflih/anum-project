@@ -11,7 +11,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="style.css" />
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body>
     <!-- awal navbar  -->
@@ -145,7 +145,7 @@
                 class="btn btn-dark"
                 href="#hasil"
                 type="button"
-                onclick="hitung()"
+                onclick="calculateAnnuity()"
               >
                 Hitung
               </button>
@@ -168,7 +168,18 @@
           <div id="hasilDesk"></div>
         </div>
         <div>
-          <div id="hasilGrafik"></div>
+          <table id="annuityTable">
+            <thead>
+              <tr>
+                <th>Bulan</th>
+                <th>n</th>
+                <th>xn</th>
+                <th>f'</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+          </table>
+          <canvas id="annuityChart" width="400" height="200"></canvas>
         </div>
       </div>
     </section>
