@@ -3,29 +3,64 @@
 body {
   font-family: "Poppins", sans-serif;
 }
-#home {
-  background-image: url(image/money.png);
+#perhitungan {
+  /* background-image: url(image/money.png); */
   height: 100vh;
 }
 
-#home .container {
+#perhitungan .container {
   width: 50%;
 }
 
-table {
-  border-collapse: collapse;
-  width: 100%;
-}
-th,
-td {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-th {
-  background-color: #f2f2f2;
+#nav {
+  background-color: #b1e3ff;
 }
 
+.collapse {
+  position: relative;
+  top: 10px;
+  font-size: 17px;
+}
+
+.nav-link {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px; /* Jarak garis bawah dari teks */
+  left: 0;
+  width: 0;
+  height: 2px; /* Ketebalan garis bawah */
+  background-color: #007bff; /* Warna garis bawah */
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%; /* Panjang garis bawah saat hover */
+}
+
+.footer {
+  overflow-x: hidden;
+}
+
+/*home*/
+#home {
+  position: relative;
+  top: 50px;
+
+  padding-bottom: 180px;
+}
+
+#hitung {
+  padding-top: 180px;
+}
+
+#bunga {
+  padding-top: 180px;
+}
 /* media query */
 @media (max-width: 768px) {
   #home .container {
