@@ -10,6 +10,7 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-*********************" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
@@ -59,7 +60,7 @@
 
     <!-- awal home  -->
     <section id="perhitungan">
-      <div class="container pt-5 pb-5">
+      <div class="container py-5">
         <div class="header-home text-center row gap-3">
           <h1>Perhitungan Pinjaman</h1>
           <p>
@@ -138,7 +139,7 @@
             </div>
             <div class="d-grid col-3 mx-auto mt-4">
               <button
-                class="btn btn-dark"
+                class="btn btn-primary"
                 href="#hasil"
                 type="button"
                 onclick="calculateAnnuity()"
@@ -154,16 +155,10 @@
 
     <!-- awal hasil  -->
     <section id="hasil">
-      <div class="container mt-5 text-center">
+      <div class="container text-center py-5">
         <div class="row gap-2">
           <div><h2>Hasil</h2></div>
           <div id="hasilCicilan"></div>
-          <div id="hasilIterasi"></div>
-          <div id="hasilAksen"></div>
-          <div id="hasilAsli"></div>
-          <div id="hasilDesk"></div>
-        </div>
-        <div>
           <table id="annuityTable">
             <thead>
               <tr>
@@ -175,30 +170,89 @@
             </thead>
             <tbody id="tableBody"></tbody>
           </table>
-          <canvas id="annuityChart" width="400" height="200"></canvas>
+          <div id="hasilIterasi"></div>
+          <div id="hasilAksen"></div>
+          <div id="hasilAsli"></div>
+          <div id="hasilDesk"></div>
         </div>
+      </div>
+    </section>
+    <section>
+      <div class="container py-5 text-center">
+        <h2>Grafik</h2>
+        <canvas id="annuityChart" width="400" height="200"></canvas>
       </div>
     </section>
     <!-- akhir hasil  -->
 
     <!-- awal footer  -->
-    <footer
-      class="bg-body-tertiary text-center text-lg-start text-light"
-      data-bs-theme="dark"
-    >
-      <!-- Copyright -->
-      <div class="text-center p-2">
-        © 2024 Copyright:
-        <a>anum-e4</a>
-      </div>
-      <!-- Copyright -->
-    </footer>
+    <section id="footer">
+      <footer class="bg-dark text-white pt-5 pb-3">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-3">
+                <h5>CalCUS</h5>
+                <p>Subscribe</p>
+                <form>
+                  <div class="mb-3">
+                    <input type="email" class="form-control form-control-sm"  style="width: 200px;" placeholder="Enter your email">
+                  </div>
+                </form>
+              </div>
+              <div class="col-md-2">
+                <h5>Contact</h5>
+                <p>Tasikmalaya</p>
+                <p>CalUS@gmail.com</p>
+                <p>+62 821-1565-4736</p>
+              </div>
+              <div class="col-md-2">
+                <h5>Support</h5>
+                <ul class="list-unstyled">
+                  <li><a href="#" class="text-white">My Account</a></li>
+                  <li><a href="#" class="text-white">Login / Register</a></li>
+                </ul>
+              </div>
+              <div class="col-md-2">
+                <h5>Support</h5>
+                <ul class="list-unstyled">
+                  <li><a href="#" class="text-white">Privacy Policy</a></li>
+                  <li><a href="#" class="text-white">Terms Of Use</a></li>
+                  <li><a href="#" class="text-white">FAQ</a></li>
+                </ul>
+              </div>
+              <div class="col">
+                <h5>Media social</h5>
+                <ul class="list-unstyled">
+                  <a href="#" class="text-white me-2"><i class="fa-brands fa-facebook"></i></a>
+                  <a href="#" class="text-white me-2"><i class="fab fa-twitter"></i></a>
+                  <a href="#" class="text-white me-2"><i class="fab fa-instagram"></i></a>
+                  <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+                </ul>
+              </div>
+            </div>
+            <div
+            class=""
+            data-bs-theme="dark"
+          >
+            <!-- Copyright -->
+            <div class="text-center">
+              © 2024 Copyright:
+              <a>anum-e4</a>
+            </div>
+            <!-- Copyright -->
+          </div>
+          </div>
+        </footer>
+  </section>
+  
     <!-- akhir footer  -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+
     <script src="script.js"></script>
   </body>
 </html>
