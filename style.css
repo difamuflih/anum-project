@@ -12,6 +12,20 @@ body {
   width: 50%;
 }
 
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+th,
+td {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+th {
+  background-color: #f2f2f2;
+}
+
 #nav {
   background-color: #b1e3ff;
 }
@@ -54,11 +68,11 @@ body {
   padding-bottom: 180px;
 }
 
-#hitung {
+#home-hitung {
   padding-top: 180px;
 }
 
-#bunga {
+#home-bunga {
   padding-top: 180px;
 }
 /* media query */
