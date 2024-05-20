@@ -49,12 +49,12 @@ function calculateAnnuity() {
     console.log(monthlyPayment);
 
     // toleransi
-    if (exMonthlyPayment - monthlyPayment < 0.1) {
+    if (exMonthlyPayment - monthlyPayment < 0.01) {
       document.getElementById(
         "hasilIterasi"
       ).innerText = `Nilai n yang mendekati solusi optimal adalah: ${exMonthlyPayment.toFixed(
         2
-      )} bulan`;
+      )}`;
       document.getElementById(
         "hasilAksen"
       ).innerText = `Jumlah iterasi yang dibutuhkan: ${month}`;
